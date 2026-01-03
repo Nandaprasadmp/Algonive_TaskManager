@@ -1,0 +1,94 @@
+:root {
+    --primary: #6366f1;
+    --accent: #818cf8;
+    --success: #10b981;
+    --danger: #ff4d4d;
+    --glass: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --bg-dark: #0f172a;
+    --text-white: #f8fafc;
+    --text-dim: #94a3b8;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+
+body {
+    background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.15), transparent),
+                linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.95)),
+                url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2072');
+    background-size: cover;
+    background-attachment: fixed;
+    color: var(--text-white);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.app-shell { display: flex; height: 100vh; padding: 20px; gap: 20px; }
+
+.sidebar {
+    width: 300px; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border); border-radius: 30px; padding: 30px;
+    display: flex; flex-direction: column;
+}
+
+.avatar { width: 60px; height: 60px; border-radius: 18px; margin-bottom: 15px; border: 2px solid var(--primary); }
+
+.glossy-clock { text-align: center; margin-bottom: 30px; padding: 20px; background: var(--glass); border-radius: 20px; }
+#time { font-size: 2rem; font-weight: 800; color: var(--primary); text-shadow: 0 0 15px var(--primary); }
+
+.nav-btn {
+    width: 100%; padding: 12px 20px; border-radius: 12px; border: none; background: transparent;
+    color: var(--text-dim); text-align: left; cursor: pointer; transition: 0.3s; margin-bottom: 5px;
+    font-weight: 600; display: flex; align-items: center; gap: 12px;
+}
+.nav-btn.active, .nav-btn:hover { background: var(--primary); color: white; box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3); }
+
+.workspace { flex: 1; display: flex; flex-direction: column; gap: 20px; overflow-y: auto; padding-right: 10px; }
+
+.glass-search {
+    background: var(--glass); backdrop-filter: blur(15px); border: 1px solid var(--glass-border);
+    border-radius: 50px; padding: 12px 25px; display: flex; align-items: center; gap: 15px; width: 450px;
+}
+.glass-search input { background: transparent; border: none; color: white; outline: none; width: 100%; }
+
+.creator-container { background: rgba(255,255,255,0.03); padding: 25px; border-radius: 24px; border: 1px solid var(--glass-border); }
+.creator-grid { 
+    display: grid; 
+    grid-template-columns: 1.5fr 1.5fr 1fr 0.8fr 60px; 
+    gap: 15px; 
+    align-items: flex-end; 
+}
+
+.input-group label { display: block; font-size: 0.7rem; font-weight: 800; color: var(--primary); text-transform: uppercase; margin-bottom: 8px; }
+.input-group input, .input-group select {
+    width: 100%; background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border);
+    padding: 12px; border-radius: 12px; color: white; outline: none;
+}
+
+.btn-pro-add {
+    height: 48px; position: relative; overflow: hidden; background: var(--primary);
+    border: none; border-radius: 12px; color: white; cursor: pointer; transition: 0.3s;
+}
+.btn-shine {
+    position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: 0.5s;
+}
+.btn-pro-add:hover .btn-shine { left: 100%; }
+
+.task-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+.task-card {
+    background: var(--glass); backdrop-filter: blur(10px); border: 1px solid var(--glass-border);
+    border-radius: 24px; padding: 25px; transition: 0.4s; position: relative;
+}
+.task-card:hover { transform: translateY(-8px); border-color: var(--primary); background: rgba(255,255,255,0.08); }
+.task-card.completed { opacity: 0.5; filter: grayscale(1); }
+
+.task-desc { font-size: 0.85rem; color: var(--text-dim); margin-bottom: 15px; line-height: 1.4; }
+
+.action-btn { background: none; border: none; color: rgba(255,255,255,0.3); cursor: pointer; transition: 0.2s; }
+.action-btn:hover { color: var(--primary); }
+.action-btn.delete:hover { color: var(--danger); }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb { background: var(--glass-border); border-radius: 10px; }

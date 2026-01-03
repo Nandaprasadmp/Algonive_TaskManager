@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nanda Prasad | Enterprise Task Suite</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <div class="profile-zone">
+                <img src="https://ui-avatars.com/api/?name=Nanda+Prasad&background=6366f1&color=fff&bold=true" alt="Avatar" class="avatar">
+                <div class="user-info">
+                    <h3>Nanda Prasad</h3>
+                    <p>Pro Developer</p>
+                </div>
+            </div>
+
+            <div class="glossy-clock">
+                <div id="time">00:00:00</div>
+                <div id="date">Loading Date...</div>
+            </div>
+
+            <nav class="side-nav">
+                <button class="nav-btn active" data-filter="all"><i class="fas fa-layer-group"></i> All Tasks</button>
+                <button class="nav-btn" data-filter="high"><i class="fas fa-bolt"></i> Critical</button>
+                <button class="nav-btn" data-filter="completed"><i class="fas fa-check-double"></i> Finished</button>
+            </nav>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span>Performance</span>
+                    <span id="percText">0%</span>
+                </div>
+                <div class="progress-track">
+                    <div id="progressBar" class="progress-fill"></div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="workspace">
+            <header class="top-nav">
+                <div class="glass-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search" placeholder="Search objectives or details...">
+                </div>
+                <div class="status-pill">
+                    <span class="dot"></span> Online
+                </div>
+            </header>
+
+            <section class="creator-container">
+                <form id="taskForm" class="creator-grid">
+                    <input type="hidden" id="editTaskId">
+                    
+                    <div class="input-group">
+                        <label>Objective</label>
+                        <input type="text" id="taskTitle" placeholder="e.g. Build API" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Description</label>
+                        <input type="text" id="taskDesc" placeholder="Details...">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Deadline</label>
+                        <input type="date" id="taskDate" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Priority</label>
+                        <select id="taskPriority">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" id="submitBtn" class="btn-pro-add">
+                        <i class="fas fa-plus"></i>
+                        <div class="btn-shine"></div>
+                    </button>
+                </form>
+            </section>
+
+            <div id="taskGrid" class="task-grid"></div>
+        </main>
+    </div>
+
+    <audio id="reminderSound" src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3" preload="auto"></audio>
+
+    <script src="app.js"></script>
+</body>
+</html>
